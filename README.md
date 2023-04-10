@@ -6,11 +6,11 @@ J'ai réalisé les opérations CRUD des deux tables que j'ai : Category & Produc
 
 Dans cette partie j'ai pu intégrer les opérations suivantes:
 
-    *Téléchargement des images pour la table Product(l'emplacement des images téléchargées : ~/product-management-frontend/public/assets/images/)
-    *Exportation des fichiers CSV & PDF.
-    *Validation des formulaires.
-    *Gestion des exceptions des APIs.
-    *Documentation des APIs en utilisation l'outil "Swagger".
+    * Téléchargement des images pour la table Product(l'emplacement des images téléchargées : ~/product-management-frontend/public/assets/images/)
+    * Exportation des fichiers CSV & PDF.
+    * Validation des formulaires.
+    * Gestion des exceptions des APIs.
+    * Documentation des APIs en utilisation l'outil "Swagger".
 
 ### Pour la partie Kafka-Test
 
