@@ -11,8 +11,7 @@ Dans cette partie j'ai pu intégrer les opérations suivantes:
    * Validation des formulaires.
    * Gestion des exceptions des APIs.
    * Documentation des APIs en utilisation l'outil "Swagger".
-   * Intégration de kafka:
-   ** J'ai utilisé kafka pour enregistrer une copie d'original DB dans une autre DB.
+   * Intégration de kafka: "J'ai utilisé kafka pour enregistrer une copie d'original DB dans une autre DB".
 
 ### Pour la partie Kafka-Test
 
