@@ -1,22 +1,20 @@
 package com.product.productmanagement.logic.impl;
 
-import com.product.productmanagement.dataaccess.dao.CategoryDao;
-import com.product.productmanagement.dataaccess.dao.ProductDao;
+import com.product.productmanagement.dataaccess.dao.original.CategoryDao;
+import com.product.productmanagement.dataaccess.dao.original.ProductDao;
 import com.product.productmanagement.dataaccess.entities.Category;
 import com.product.productmanagement.dataaccess.entities.Product;
 import com.product.productmanagement.exceptions.DeletingException;
 import com.product.productmanagement.exceptions.ResourceNotFoundException;
 import com.product.productmanagement.logic.api.CategoryService;
+import com.product.productmanagement.producers.CategoryProducer;
 import com.product.productmanagement.to.CategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -26,6 +24,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private ProductDao productDao;
+
+    @Autowired
+    private CategoryProducer categoryProducer;
 
     @Override
     public void addCategory(CategoryDto categoryDto) {
@@ -38,6 +39,7 @@ public class CategoryServiceImpl implements CategoryService {
         category.setDateModification(new Date());
         category.setDateCreation(new Date());
         this.categoryDao.save(category);
+        this.categoryProducer.send(category);
     }
 
     @Override
@@ -107,6 +109,7 @@ public class CategoryServiceImpl implements CategoryService {
         category.setDateModification(new Date());
         category.setDateCreation(category.getDateCreation());
         this.categoryDao.save(category);
+        this.categoryProducer.send(category);
     }
 
     @Override
@@ -124,6 +127,7 @@ public class CategoryServiceImpl implements CategoryService {
             category.setSupprimer(true);
             category.setDateModification(new Date());
             this.categoryDao.save(category);
+            this.categoryProducer.send(category);
         }
 
     }

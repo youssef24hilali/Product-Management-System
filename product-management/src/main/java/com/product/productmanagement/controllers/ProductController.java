@@ -1,9 +1,8 @@
 package com.product.productmanagement.controllers;
 
-import com.product.productmanagement.dataaccess.dao.CategoryDao;
+import com.product.productmanagement.dataaccess.dao.original.CategoryDao;
 import com.product.productmanagement.dataaccess.entities.Category;
 import com.product.productmanagement.dataaccess.entities.Product;
-import com.product.productmanagement.exceptions.ResourceNotFoundException;
 import com.product.productmanagement.logic.impl.ProductServiceImpl;
 import com.product.productmanagement.to.ProductDto;
 import com.product.productmanagement.validator.ApiResponse;
@@ -11,14 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 

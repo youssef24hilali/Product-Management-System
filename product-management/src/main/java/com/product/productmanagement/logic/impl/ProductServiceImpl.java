@@ -1,10 +1,11 @@
 package com.product.productmanagement.logic.impl;
 
-import com.product.productmanagement.dataaccess.dao.ProductDao;
+import com.product.productmanagement.dataaccess.dao.original.ProductDao;
 import com.product.productmanagement.dataaccess.entities.Category;
 import com.product.productmanagement.dataaccess.entities.Product;
 import com.product.productmanagement.exceptions.ResourceNotFoundException;
 import com.product.productmanagement.logic.api.ProductService;
+import com.product.productmanagement.producers.ProductProducer;
 import com.product.productmanagement.to.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductDao productDao;
+
+    @Autowired
+    private ProductProducer productProducer;
 
     @Override
     public void addProduct(ProductDto productDto) throws IOException {
@@ -41,6 +45,7 @@ public class ProductServiceImpl implements ProductService {
         product.setDateModification(new Date());
         product.setCategory(new Category(productDto.getCategoryId()));
         this.productDao.save(product);
+        this.productProducer.send(product);
     }
 
     @Override
@@ -124,6 +129,7 @@ public class ProductServiceImpl implements ProductService {
         product.setDateModification(new Date());
         product.setCategory(product.getCategory());
         this.productDao.save(product);
+        this.productProducer.send(product);
     }
 
     @Override
@@ -143,6 +149,7 @@ public class ProductServiceImpl implements ProductService {
         product.setSupprimer(true);
         product.setDateModification(new Date());
         this.productDao.save(product);
+        this.productProducer.send(product);
     }
 
     public Product newUpdateProduct(Long id, ProductDto productDto) throws IOException {

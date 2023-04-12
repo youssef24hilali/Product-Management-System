@@ -2,7 +2,7 @@
   <div class="container">
     <div class="signup-content">
       <form @submit.prevent="updateCategory" method='post' class="signup-form">
-        <h2 class="form-title" style="margin-bottom: 60px; margin-top: 20px">Add Category</h2>
+        <h2 class="form-title" style="margin-bottom: 60px; margin-top: 20px">Update Category</h2>
         <div class="form-group position-relative">
           <label for="nom">Category Name<span style="color: red;">*</span></label>
           <input autocomplete="off" ref="nameInput" :class="{ 'is-invalid': isNameInvalid && touched }" v-model="category.nom" type="text" class="form-control" name="nom" id="name" placeholder="Category Name"/>
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="form-group">
-          <input type="submit" name="submit" id="submit" class="btn btn-warning send-button" value="Add Category"/>
+          <input type="submit" name="submit" id="submit" class="btn btn-warning send-button" value="Update Category"/>
         </div>
       </form>
     </div>

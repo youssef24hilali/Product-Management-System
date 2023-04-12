@@ -2,7 +2,7 @@
   <div class="container">
     <div class="signup-content">
       <form @submit.prevent="updateProduct" method="post" class="signup-form">
-        <h2 class="form-title" style="margin-bottom: 60px; margin-top: 20px">Add Product</h2>
+        <h2 class="form-title" style="margin-bottom: 60px; margin-top: 20px">Update Product</h2>
         <div class="form-group">
           <label for="name">Product Name<span style="color: red;">*</span></label>
           <input autocomplete="off" ref="nameInput" :class="{ 'is-invalid': isNameInvalid && touched }" v-model="product.nom" type="text" class="form-control" name="name" id="name" placeholder="Product Name"/>
